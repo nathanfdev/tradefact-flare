@@ -1,0 +1,20 @@
+export const packageTypes = [
+  { value: 'pallets_48x40', displayName: 'Pallets (48x40)' },
+  { value: 'pallets_48x48', displayName: 'Pallets (48x48)' },
+  { value: 'pallets_60x48', displayName: 'Pallets (60x48)' },
+  { value: 'pallets_1200x800_euro', displayName: 'Pallets (1200x800) EURO' },
+  { value: 'pallets_1200x1000_uk', displayName: 'Pallets (1200x1000) UK' },
+  { value: 'pallets_other', displayName: 'Pallets Other' },
+  { value: 'bags', displayName: 'Bags' },
+  { value: 'bales', displayName: 'Bales' },
+  { value: 'boxes_cartons', displayName: 'Boxes / Cartons' },
+  { value: 'bundles', displayName: 'Bundles' },
+  { value: 'carpets', displayName: 'Carpets' },
+  { value: 'crates', displayName: 'Crates' },
+  { value: 'cylinders', displayName: 'Cylinders' },
+  { value: 'drums', displayName: 'Drums' },
+  { value: 'pails', displayName: 'Pails' },
+  { value: 'reels', displayName: 'Reels' },
+  { value: 'rolls', displayName: 'Rolls' },
+  { value: 'tubes_pipes', displayName: 'Tubes Pipes' }
+]

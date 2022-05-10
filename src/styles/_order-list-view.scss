@@ -1,0 +1,124 @@
+.order-list {
+  .order-list-item,
+  #topbar {
+    border: 1px solid #edf2f9;
+    border-radius: 10px;
+  }
+  .table-border {
+    border-bottom: 1px solid #edf2f9;
+  }
+  .table_search .btn-search-input .form-control {
+    width: 270px !important;
+  }
+}
+
+#order-list-scroll-container {
+  overflow-y: scroll;
+  // 200px is a eyeball figure based on the height of the list header + topbar + padding
+  max-height: calc(100vh - 200px);
+  padding-right: 10px;
+
+  &::-webkit-scrollbar {
+    background: #f7f7fa;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #d4deec;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-corner {
+    /* background: $base1; */
+  }
+}
+
+.order-list-item {
+  animation: fadeInAnimation ease 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  span {
+    font-size: 14px;
+  }
+
+  td {
+    vertical-align: top !important;
+    border-bottom: 1px solid #edf2f9;
+  }
+
+  .table thead th,
+  td {
+    border-top: none;
+    border-bottom: 1px solid #edf2f9 !important;
+  }
+
+  small {
+    color: #a2a2a2;
+    font-size: 13px;
+  }
+
+  &__indicator {
+    border-bottom: 1px solid #edf2f9;
+  }
+
+  .awaiting-dispatch {
+  }
+}
+.account-dropdown {
+  color: $primary-text-color;
+  background-color: transparent !important;
+  border-color: $light-border-color;
+  &.collapse-button {
+    border-color: $light-border-color;
+    width: 45px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  i {
+    color: $secondary;
+  }
+  .btn-secondary {
+    color: $primary-text-color;
+    background-color: transparent !important;
+    border-color: $light-border-color;
+  }
+  .btn-outline-secondary {
+    color: $primary-text-color;
+    background-color: transparent !important;
+    border-color: $light-border-color;
+  }
+  .dropdown-button {
+    border: 1px solid $light-border-color;
+    font-weight: 600;
+    line-height: 100%;
+  }
+}
+.sort {
+  .dropdownItem {
+    &.active,
+    &:active {
+      background: none;
+    }
+  }
+  .dropdown-menu .dropdown-item {
+    padding: 10px;
+    font-size: 14px !important;
+  }
+  .dropdownItem .form-check-input {
+    margin-top: 0 !important;
+  }
+  .sort-by-heading {
+    color: #9eb2cd;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 10px;
+  }
+}

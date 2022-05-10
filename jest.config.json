@@ -1,0 +1,13 @@
+{
+  "bail": true,
+  "collectCoverageFrom": ["**/src/**/*.ts?(x)", "!**/src/index.tsx"],
+  "moduleNameMapper": {
+    "\\.(css|less|scss)$": "identity-obj-proxy"
+  },
+  "verbose": true,
+  "preset": "ts-jest",
+  "setupFilesAfterEnv": ["./scripts/jest.setup.ts"],
+  "testMatch": ["**/src/**/*.test.ts?(x)"],
+  "transformIgnorePatterns":["node_modules"],
+  "transform": {"^.+\\.jsx?$": "babel-jest" }
+}

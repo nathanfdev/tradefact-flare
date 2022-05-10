@@ -1,0 +1,91 @@
+parameters:
+- name: Name
+  type: string
+  default: develop
+- name: env
+  type: string
+  default: flare-app.env.development        # set by default
+- name: Enabled  
+  type: boolean
+  default: false
+
+stages:
+- stage: ${{ parameters.Name }}
+  displayName: '${{ parameters.Name }} Stage'
+  condition: and(not(failed()), eq('${{ parameters.Enabled }}', true))
+  variables:
+    - name: YARN_CACHE_FOLDER
+      value: $(Pipeline.Workspace)\.yarn
+
+  jobs:
+   - job: Build
+     displayName: 'Build ${{ parameters.Name }} '
+   
+     steps: 
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '14.17.5'
+          
+      - task: YarnInstaller@3
+        displayName: 'Use Yarn 1.x'
+        inputs:
+          versionSpec: '1.x'
+          checkLatest: true
+
+      - task: Cache@2
+        inputs:
+          key: '"yarn" | "$(Agent.OS)" | yarn.lock'
+          restoreKeys: |
+            yarn | "$(Agent.OS)"
+          path: $(YARN_CACHE_FOLDER)
+        displayName: Cache Yarn packages
+
+      - script: yarn --frozen-lockfile
+
+      - task: DownloadSecureFile@1
+        name: buildEnv
+        displayName: 'Download Secure File:  ${{ parameters.env }}'
+        inputs:
+          secureFile: ${{ parameters.env }}
+
+      - script: mkdir 'config'
+        displayName: 'Make Directory:  config'
+
+      - script: mv $(buildEnv.secureFilePath) './config/production.env'
+        displayName: 'Rename buildEnv.secureFilePath to ./config/production.env'
+
+      - script: cat 'config/production.env'
+        displayName: 'Display active configuration config/production.env'
+
+      - task: Yarn@3
+        displayName: 'yarn build'
+        inputs:
+          arguments: 'build'
+
+      - task: CopyFiles@2
+        displayName: 'Copy files: public -> build copy'
+        inputs:
+          SourceFolder: public
+          TargetFolder: build
+
+      - task: CopyFiles@2
+        displayName: 'Copy files: dist -> build copy'
+        inputs:
+          SourceFolder: dist
+          TargetFolder: build
+
+      - task: ArchiveFiles@2
+        displayName: 'Archive build'
+        inputs:
+          rootFolderOrFile: build
+          includeRootFolder: false
+          archiveFile: '$(Build.ArtifactStagingDirectory)/${{ parameters.Name }}/$(Build.BuildId).${{ parameters.Name }}.zip'
+
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Artifact: develop'
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)/${{ parameters.Name }}'
+          ArtifactName: develop
+
+      - script: rm 'config/production.env'
+        displayName: 'RM config/production.env - ${{ parameters.Name }} ENV'

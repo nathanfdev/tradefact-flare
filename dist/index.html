@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="minimum-scale=1, initial-scale=1, width=device-width"
+    />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Flare | Supply Chain Harmony</title>
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2c7be5" />
+    <link
+      href="node_modules/gridstack/dist/gridstack-extra.css"
+      rel="stylesheet"
+    />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.api.here.com/v3/3.1/mapsjs-ui.css?dp-version=1526040296"
+    />
+    <script
+      src="https://kit.fontawesome.com/3aad479214.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"
+    ></script>
+    <script>
+      !(function() {
+        var analytics = (window.analytics = window.analytics || [])
+        if (!analytics.initialize)
+          if (analytics.invoked)
+            window.console &&
+              console.error &&
+              console.error('Segment snippet included twice.')
+          else {
+            analytics.invoked = !0
+            analytics.methods = [
+              'trackSubmit',
+              'trackClick',
+              'trackLink',
+              'trackForm',
+              'pageview',
+              'identify',
+              'reset',
+              'group',
+              'track',
+              'ready',
+              'alias',
+              'debug',
+              'page',
+              'once',
+              'off',
+              'on',
+              'addSourceMiddleware',
+              'addIntegrationMiddleware',
+              'setAnonymousId',
+              'addDestinationMiddleware'
+            ]
+            analytics.factory = function(e) {
+              return function() {
+                var t = Array.prototype.slice.call(arguments)
+                t.unshift(e)
+                analytics.push(t)
+                return analytics
+              }
+            }
+            for (var e = 0; e < analytics.methods.length; e++) {
+              var key = analytics.methods[e]
+              analytics[key] = analytics.factory(key)
+            }
+            analytics.load = function(key, e) {
+              var t = document.createElement('script')
+              t.type = 'text/javascript'
+              t.async = !0
+              t.src =
+                'https://cdn.segment.com/analytics.js/v1/' +
+                key +
+                '/analytics.min.js'
+              var n = document.getElementsByTagName('script')[0]
+              n.parentNode.insertBefore(t, n)
+              analytics._loadOptions = e
+            }
+            analytics._writeKey = 'PEqFa530gf4unuq9PUSpt996kIJTXIxx'
+            analytics.SNIPPET_VERSION = '4.13.2'
+            analytics.load('PEqFa530gf4unuq9PUSpt996kIJTXIxx')
+          }
+      })()
+    </script>
+    <script>
+      var STONLY_WID = 'fe0c5f04-7e53-11eb-accc-0ad3430e55ea'
+    </script>
+    <script>
+      !(function(s, t, o, n, l, y, w, g) {
+        s.StonlyWidget ||
+          (((w = s.StonlyWidget = function() {
+            w._api ? w._api.apply(w, arguments) : w.queue.push(arguments)
+          }).queue = []),
+          ((y = t.createElement(o)).async = !0),
+          (g = new XMLHttpRequest()).open(
+            'GET',
+            n + 'version?v=' + Date.now(),
+            !0
+          ),
+          (g.onreadystatechange = function() {
+            4 === g.readyState &&
+              ((y.src =
+                n +
+                'stonly-widget.js?v=' +
+                (200 === g.status ? g.responseText : Date.now())),
+              (l = t.getElementsByTagName(o)[0]).parentNode.insertBefore(y, l))
+          }),
+          g.send())
+      })(window, document, 'script', 'https://stonly.com/js/widget/v2/')
+    </script>
+    <script
+      type="text/javascript"
+      src="https://js.api.here.com/v3/3.1/mapsjs-clustering.js"
+    ></script>
+  <link href="styles.css" rel="stylesheet"></head>
+  <body>
+    <div id="app"></div>
+  <script type="text/javascript" src="main.89fab29b0a674248fbb9.js"></script></body>
+</html>

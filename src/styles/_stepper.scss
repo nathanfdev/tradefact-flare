@@ -1,0 +1,190 @@
+$stepper-step-line-default: #edf2f9;
+$stepper-step-icon-default: #95aac9;
+$stepper-step-text-default: #12263f;
+$stepper-step-gap-default: 10px;
+
+.stepper {
+  display: flex;
+  width: 80%;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  justify-content: space-around;
+  position: relative;
+  @include media-breakpoint-down(lg) {
+    justify-content: space-between;
+  }
+  &::after {
+    content: '';
+    width: 80%;
+    top: 50%;
+    height: 1px;
+    background: $border-color;
+    position: absolute;
+    @include media-breakpoint-down(lg) {
+      content: none;
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    flex-wrap: wrap;
+    padding-bottom: 0px;
+  }
+}
+
+.stepper-step {
+  .stepper__link {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    background: white;
+    padding: 6px 14px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+    @include media-breakpoint-down(lg) {
+      padding: 6px 8px;
+    }
+  }
+  i {
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: $secondary;
+    white-space: nowrap;
+  }
+  &:last-of-type {
+    margin-right: 0px;
+  }
+  @each $color, $value in $theme-colors {
+    &.is-#{$color} {
+      .step__icon {
+        border: solid 1px $value;
+
+        i {
+          color: $value;
+        }
+      }
+    }
+  }
+}
+
+.stepper-step.is-active {
+  padding: 0px 15px;
+  background: white;
+  z-index: 1;
+  .stepper__link {
+    background: $primary;
+  }
+
+  i {
+    color: white;
+    opacity: 0.5;
+  }
+  span {
+    color: white;
+  }
+}
+
+.stepper-step.is-disabled {
+  //opacity: 0.5;
+  cursor: not-allowed;
+  i {
+    color: $secondary;
+  }
+  .stepper__link {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+
+.stepper__link {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  flex-direction: row;
+  @include media-breakpoint-up(md) {
+    flex-direction: column;
+  }
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.step__icon {
+  width: 35px;
+  height: 35px;
+  flex: 0 0 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: solid 1px $stepper-step-icon-default;
+  position: relative;
+  transition: 0.3s;
+  margin-right: 10px;
+  @include media-breakpoint-up(md) {
+    margin-right: 0px;
+  }
+  @include media-breakpoint-up(lg) {
+    margin-right: 10px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    left: -1px;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: $primary;
+    border-radius: 50%;
+    transition: 0.3s;
+    transform: scale(0);
+    opacity: 0;
+  }
+  i {
+    color: $stepper-step-icon-default;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.stepper__step.is-active {
+  .step__text::after {
+    width: 100%;
+    transition-delay: 0.2s;
+  }
+}
+
+//Enable Stepper Lines
+@include media-breakpoint-up(xl) {
+  .stepper.has-lines {
+    .stepper__step {
+      &::after {
+        content: '';
+        height: 1px;
+        width: 20px;
+        display: block;
+        background: $stepper-step-line-default;
+        margin-left: $stepper-step-gap-default;
+      }
+
+      &:last-of-type {
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}

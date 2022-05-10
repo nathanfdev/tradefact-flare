@@ -1,0 +1,66 @@
+# SPA Build Pipeline (Staging & Production)
+trigger:
+  branches:
+    include:
+      - master
+  batch: True
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: YarnInstaller@3
+    displayName: 'Use Yarn 1.x'
+    inputs:
+      versionSpec: '1.x'
+      checkLatest: true
+
+  - task: Yarn@3
+    displayName: 'yarn install'
+    inputs:
+      arguments: 'install'
+
+  - script: mkdir 'config'
+    displayName: 'Make Directory:  config'
+
+  - task: DownloadSecureFile@1
+    name: buildDevelopmentEnv
+    displayName: 'Download Secure File:  flare-app.env.development '
+    inputs:
+      secureFile: 'flare-app.env.development'
+
+  - script: mv $(buildDevelopmentEnv.secureFilePath) 'config/production.env'
+    displayName: 'Rename buildDevelopmentEnv.secureFilePath to config/production.env'
+
+  - task: Yarn@3
+    displayName: 'yarn build'
+    inputs:
+      arguments: 'build'
+
+  - task: CopyFiles@2
+    displayName: 'Copy files: public -> build copy'
+    inputs:
+      SourceFolder: public
+      TargetFolder: build
+
+  - task: CopyFiles@2
+    displayName: 'Copy files: dist -> build copy'
+    inputs:
+      SourceFolder: dist
+      TargetFolder: build
+
+  - task: ArchiveFiles@2
+    displayName: 'Archive build'
+    inputs:
+      rootFolderOrFile: build
+      includeRootFolder: false
+      archiveFile: '$(Build.ArtifactStagingDirectory)/develop/$(Build.BuildId).develop.zip'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: develop'
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/develop'
+      ArtifactName: develop
+
+  - script: rm 'config/production.env'
+    displayName: 'RM config/production.env - Development ENV'

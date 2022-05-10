@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="minimum-scale=1, initial-scale=1, width=device-width"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Flare</title>
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2C7BE5" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="registration-complete-wrap text-center">
+      <img class="mb-5" src="images/logo.svg" alt="Flare" />
+      <h4>Registration Complete</h4>
+      <a class="btn btn-primary mt-3" href="/">Get Started</a>
+    </div>
+    <script>
+      var param = window.location.hash
+      //User cancel registration error code to handle cancellation message
+      if (param.includes('AADB2C90091')) {
+        const heading = document.querySelector('h4')
+        const link = document.querySelector('a')
+        const container = document.querySelector('div')
+        const paragraph = document.createElement('p')
+        const windowCloseText = document.createTextNode(
+          'You may now close this window'
+        )
+        paragraph.appendChild(windowCloseText)
+
+        heading.textContent = 'Registration Aborted'
+        link.remove()
+        container.appendChild(paragraph)
+      }
+    </script>
+  </body>
+</html>

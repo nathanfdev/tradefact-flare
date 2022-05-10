@@ -1,0 +1,33 @@
+.account {
+  font-size: 14px;
+  font-weight: normal;
+  .main-heading {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .heading {
+    font-weight: 700;
+    font-size: 11px;
+  }
+  .addres-name {
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: capitalize;
+  }
+  .currency {
+    min-width: 340px;
+  }
+  .round-box {
+    width: 30%;
+    border-radius: 10px;
+    padding: 20px;
+    button {
+      height: 30px;
+    }
+  }
+  .pen-edit-box {
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+  }
+}

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800,900&display=swap');
+
+$font-family-base: 'Inter', sans-serif;
+$card-cap-bg: white;
+
+//Color Overrides
+
+//$primary: green;
+$primary: #2c7be5;
+$secondary: #95aac9;
+$success: #2bc585;
+$danger: #e66054;
+$primary-text-color: #12263f;
+$text-color: #161b2d;
+$warning: #fea115;
+
+// Button Overrides
+$btn-padding-y: 0.5rem;
+$btn-padding-x: 1rem;
+$btn-font-weight: 600;
+$input-btn-font-size: 14px;
+
+@import '~react-toastify/dist/ReactToastify.css';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+$font-family-base: 'Inter', sans-serif;
+$card-cap-bg: white;
+
+$light-border-color: #edf2f9;
+$border-color: #d9dee4;
+$pagination-border-color: #d4deec;
+$pagination-disabled-border-color: #d4deec;
+$input-border-color: #d4deec;
+
+$secondary-container-color: #f7f7fa;
+
+$xs-breakpoint: 0px;
+$sm-breakpoint: 600px;
+$md-breakpoint: 900px;
+$lg-breakpoint: 1200px;
+$xl-breakpoint: 1750px;
+
+$f1: 22px;
+$f2: 21px;
+$f3: 18px;
+$f8: 17px;
+$f4: 16px;
+$f5: 15px;
+$f6: 14px;
+$f7: 11px;
+$f9: 12px;
+
+//@font-weight
+$font-weight600: 600;
+$font-weight500: 500;
+//width
+$width: 60%;
+$width30: 30%;
+$width70: 70%;
+$width17: 17%;
+$width80: 83%;
+
+@import '~bootstrap/scss/bootstrap';
+@import '~react-datepicker/dist/react-datepicker.css';
+@import './styles/all';

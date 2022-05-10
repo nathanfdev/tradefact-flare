@@ -1,0 +1,73 @@
+.quote-card-header {
+  padding: 1.5em 1.25rem;
+}
+
+.quote-header {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #12263f;
+}
+
+.quote-subtitle {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 150%;
+  text-transform: uppercase;
+  color: #95aac9;
+  padding: 25px 0;
+}
+
+.quote-label {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+  color: $text-color;
+}
+
+.quote-label-inline {
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: $text-color;
+  margin-bottom: 0px;
+}
+
+input:disabled.quote-disabled-box.no-outline {
+  background: #ffffff;
+  border: 1px solid #edf2f9;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+input:disabled.quote-disabled-box {
+  background: #ffffff;
+}
+
+.quote-text-area,
+.quote-text-area:focus,
+.quote-text-area:active {
+  background: #f7f7fa;
+  border: 1px solid #edf2f9;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.quote-charge-expanded {
+  background: #f7f7fa;
+  border: 1px solid #edf2f9;
+  box-sizing: border-box;
+  border-radius: 0px;
+}
+
+.card-list {
+  .card {
+    border: none;
+    border-radius: 0;
+    .card-header {
+      border-bottom: 1px solid $border-color;
+    }
+  }
+  border: 1px solid $border-color;
+}

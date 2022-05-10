@@ -1,0 +1,124 @@
+@charset 'utf-8';
+
+/* user_profile_box */
+.user_profile_box {
+  padding: 30px 0;
+}
+.user_profile__head {
+  padding: 0 40px;
+  .dropdown-button {
+    border-color: $secondary;
+    font-size: 11px;
+    padding: 10px;
+    border: 1px solid $border-color;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 100%;
+    margin-right: 10px;
+  }
+
+  .btn-secondary:not(:disabled):not(.disabled):active,
+  .btn-secondary:not(:disabled):not(.disabled).active,
+  .show > .btn-secondary.dropdown-toggle {
+    color: $secondary;
+  }
+  .btn-secondary {
+    align-items: flex-end;
+    color: $secondary;
+  }
+  .btn-secondary:hover {
+    color: $secondary;
+    align-items: flex-end;
+  }
+}
+
+.user_profile__head-card span {
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 150%;
+  text-transform: uppercase;
+  color: $primary-text-color;
+}
+.user_profile__head-card h3 {
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 17px;
+  color: $primary-text-color;
+  font-weight: 400;
+
+  span {
+    text-transform: none;
+  }
+}
+.user_profile_change,
+.product-media-upload {
+  .custom-file-label::after {
+    display: none;
+  }
+}
+.user_profile_change {
+  display: flex;
+  align-items: center;
+  @include media-breakpoint-down(md) {
+    display: block;
+    .input-group {
+      margin-top: 1em;
+    }
+  }
+}
+.user_profile_avatar {
+  margin-right: 20px;
+}
+.user_profile_change .custom-file-label {
+  background-color: #fff;
+  border: 1px solid #0275d8;
+  width: 140px;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 21px;
+  color: #0275d8;
+  text-align: center;
+  cursor: pointer;
+}
+.user_profile_change .custom-file-input {
+  width: 140px;
+  cursor: pointer;
+}
+.user_profile__content {
+  border-top: 1px solid #edf2f9;
+  margin-top: 20px;
+  padding: 30px 40px;
+}
+
+@media all and (max-width: 991px) {
+  .user_profile_box {
+    padding: 0;
+  }
+  .user_profile__head-card {
+    margin-bottom: 30px;
+  }
+}
+
+@media all and (min-width: 992px) and (max-width: 1440px) {
+  .tab_sm {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+  .tab_sm ul {
+    width: 100%;
+  }
+  .tab_sm.tab_head ul li:first-child {
+    margin-left: 0;
+  }
+  .tab_sm .table_box__header--right {
+    display: flex;
+    width: 100%;
+    margin: 20px 20px 0 20px;
+  }
+  .table_box--title h3 {
+    white-space: nowrap;
+  }
+  .btn-blue-outline {
+    font-size: 11px;
+  }
+}

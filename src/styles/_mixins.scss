@@ -1,0 +1,12 @@
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    background: white;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #d4deec;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-corner {
+  }
+}

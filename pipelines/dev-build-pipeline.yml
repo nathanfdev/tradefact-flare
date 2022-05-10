@@ -1,0 +1,31 @@
+# SPA Build Pipeline (Develop)
+
+trigger:
+  branches:
+    include:
+      - develop
+      - release/*
+      - master
+  batch: True
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - template: template-build-spa.yml
+    parameters:
+      Name: develop
+      env: flare-app.env.development
+      Enabled: ${{ startsWith(variables['Build.SourceBranch'], 'refs/heads/develop') }}
+
+  - template: template-build-spa.yml
+    parameters:
+      Name: staging
+      env: flare-app.env.staging
+      Enabled: ${{ startsWith(variables['Build.SourceBranch'], 'refs/heads/release') }}
+
+  - template: template-build-spa.yml
+    parameters:
+      Name: production
+      env: flare-app.env.production
+      Enabled: ${{ startsWith(variables['Build.SourceBranch'], 'refs/heads/master') }}

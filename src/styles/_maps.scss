@@ -1,0 +1,25 @@
+.tooltip-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.tooltip-name-text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  white-space: nowrap;
+}
+.tooltip-code-text {
+  font-size: 10px;
+  color: #fff !important;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  background-color: #95aac9;
+  margin-left: 5px;
+  font-weight: 700;
+  line-height: 17px;
+  display: inline-block;
+  padding: 2px;
+}

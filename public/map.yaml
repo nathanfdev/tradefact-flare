@@ -1,0 +1,15 @@
+sources:
+  omv:
+    type: OMV
+scene:
+  background:
+    color: '#95aac9'
+layers:
+  water:
+    data:
+      source: omv
+      layer: water
+    draw:
+      polygons:
+        order: 1
+        color: '#fff'

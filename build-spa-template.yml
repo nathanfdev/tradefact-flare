@@ -1,0 +1,39 @@
+parameters:
+- name: Name
+  type: string
+  default: develop
+- name: env
+  type: string
+  default: flare-app.env.development        # set by default
+- name: Enabled  
+  type: boolean
+  default: false
+
+stages:
+- stage: ${{ parameters.Name }}
+  displayName: '${{ parameters.Name }} Stage'
+  condition: and(not(failed()), eq('${{ parameters.Enabled }}', true))
+  
+  jobs:
+   - job: Build
+     displayName: 'Build ${{ parameters.Name }} '
+    
+     steps: 
+      - task: DownloadSecureFile@1
+        name: buildEnv
+        displayName: 'Download Secure File:  $(env)'
+        inputs:
+          secureFile: $(env)
+
+      - script: mkdir 'config'
+        displayName: 'Make Directory:  config'
+
+      - script: mv $(buildEnv.secureFilePath) 'config/production.env'
+        displayName: 'Rename buildEnv.secureFilePath to config/production.env'
+
+      - script: cat 'config/production.env'
+        displayName: 'Display active configuration config/production.env'
+
+
+      - script: rm 'config/production.env'
+        displayName: 'RM config/production.env - Development ENV'
